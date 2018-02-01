@@ -12,11 +12,11 @@ static event_obj event[BEST_EVENT];
 void event_init(void) {
     register int i;
     for(i = 0;i < BEST_EVENT;i++) {
-        event[i].is_enable      = E_DISABLE;
-        event[i].flag_addr      = null;
-        event[i].call_back      = null;
-        event[i].call_custom    = null;
-        event[i].call_dat       = null;
+        event[i].is_enable   = E_DISABLE;
+        event[i].flag_addr   = null;
+        event[i].call_back   = null;
+        event[i].call_custom = null;
+        event[i].call_dat    = null;
     }
 }
 
@@ -29,12 +29,12 @@ int event_create(uint8_t *flag_addr,
     register int i;
     for(i = 0;i < BEST_EVENT;i++) {
         if(event[i].is_enable == E_DISABLE) {
-            event[i].flag_addr = flag_addr;
-            event[i].type = type;
-            event[i].call_dat = pd;
-            event[i].call_back = call_back;
+            event[i].flag_addr   = flag_addr;
+            event[i].type        = type;
+            event[i].call_dat    = pd;
+            event[i].call_back   = call_back;
             event[i].call_custom = call_custom;
-            event[i].is_enable = E_ENABLE;
+            event[i].is_enable   = E_ENABLE;
             return i;
         }
     }
@@ -45,11 +45,11 @@ int event_delet(int id) {
     if(id > BEST_EVENT) {
         return E_ERROR;
     } else {
-        event[id].is_enable = E_DISABLE;
-        event[id].flag_addr      = null;
-        event[id].call_back      = null;
-        event[id].call_custom    = null;
-        event[id].call_dat       = null;
+        event[id].is_enable   = E_DISABLE;
+        event[id].flag_addr   = null;
+        event[id].call_back   = null;
+        event[id].call_custom = null;
+        event[id].call_dat    = null;
         return id;
     }
 }
@@ -61,11 +61,11 @@ void event_loop(void) {
             switch(event[i].type) {
                 case ET_ONCE: {
                     if(*event[i].flag_addr == E_ENABLE) {
-                        event[i].is_enable = E_DISABLE;
-                        event[i].flag_addr      = null;
-                        event[i].call_back      = null;
-                        event[i].call_custom    = null;
-                        event[i].call_dat       = null;
+                        event[i].is_enable   = E_DISABLE;
+                        event[i].flag_addr   = null;
+                        event[i].call_back   = null;
+                        event[i].call_custom = null;
+                        event[i].call_dat    = null;
                         if(event[i].call_back != null) {
                             event[i].call_back(event[i].call_dat);
                         }
@@ -82,11 +82,11 @@ void event_loop(void) {
                 case ET_CUSTOM: {
                     if(event[i].call_custom != null) {
                         if(event[i].call_custom(null) == E_ENABLE) {
-                            event[i].is_enable = E_DISABLE;
-                            event[i].flag_addr      = null;
-                            event[i].call_back      = null;
-                            event[i].call_custom    = null;
-                            event[i].call_dat       = null;
+                            event[i].is_enable   = E_DISABLE;
+                            event[i].flag_addr   = null;
+                            event[i].call_back   = null;
+                            event[i].call_custom = null;
+                            event[i].call_dat    = null;
                             if(event[i].call_back != null) {
                                 event[i].call_back(event[i].call_dat);
                             }
