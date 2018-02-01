@@ -1,0 +1,64 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+cc	Makefile	/^cc=gcc$/;"	m
+obj	Makefile	/^obj=app.o event.o stime.o$/;"	m
+target	Makefile	/^target=app$/;"	m
+flag_addr	app.c	/^uint8_t flag_addr = E_DISABLE;$/;"	v
+led_task	app.c	/^void led_task(void) {$/;"	f
+main	app.c	/^int main () {$/;"	f
+event	event.c	/^static event_obj event[BEST_EVENT];$/;"	v	file:
+event_create	event.c	/^int event_create(const char *name,uint8_t *flag_addr,$/;"	f
+event_delet	event.c	/^int event_delet(const char *name) {$/;"	f
+event_init	event.c	/^void event_init(void) {$/;"	f
+event_loop	event.c	/^void event_loop(void) {$/;"	f
+BEST_EVENT	event.h	19;"	d
+ET_ALWAYS	event.h	/^    ET_ALWAYS   = 0,$/;"	e	enum:_event_type_e
+ET_CUSTOM	event.h	/^    ET_CUSTOM   = 2,$/;"	e	enum:_event_type_e
+ET_ONCE	event.h	/^    ET_ONCE     = 1,$/;"	e	enum:_event_type_e
+E_DISABLE	event.h	/^    E_DISABLE   = 0,$/;"	e	enum:_event_e
+E_ENABLE	event.h	/^    E_ENABLE    = 1,$/;"	e	enum:_event_e
+E_ERROR	event.h	/^    E_ERROR     = -1,$/;"	e	enum:_event_e
+_EVENT_H_	event.h	9;"	d
+_event_e	event.h	/^typedef enum _event_e{$/;"	g
+_event_obj	event.h	/^typedef struct _event_obj {$/;"	s
+_event_type_e	event.h	/^typedef enum _event_type_e {$/;"	g
+call_back	event.h	/^    void(*call_back)(void *);$/;"	m	struct:_event_obj
+call_custom	event.h	/^    event_e (*call_custom)(void *);$/;"	m	struct:_event_obj
+call_dat	event.h	/^    void * call_dat;$/;"	m	struct:_event_obj
+event_e	event.h	/^}event_e;$/;"	t	typeref:enum:_event_e
+event_obj	event.h	/^}event_obj;$/;"	t	typeref:struct:_event_obj
+event_type_e	event.h	/^}event_type_e;$/;"	t	typeref:enum:_event_type_e
+flag_addr	event.h	/^    uint8_t *flag_addr;$/;"	m	struct:_event_obj
+is_enable	event.h	/^    event_e is_enable : 4;$/;"	m	struct:_event_obj
+name	event.h	/^    char *name;$/;"	m	struct:_event_obj
+type	event.h	/^    event_type_e type : 4;$/;"	m	struct:_event_obj
+_FSM_H_	fsm.h	9;"	d
+null	fsm.h	11;"	d
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+list_time	stime.c	/^static struct _stime_obj list_time[BEST_STIME];$/;"	v	typeref:struct:_stime_obj	file:
+stime_create	stime.c	/^int stime_create(uint16_t sec,$/;"	f
+stime_delet	stime.c	/^int stime_delet(uint8_t id) {$/;"	f
+stime_init	stime.c	/^void stime_init(void) {$/;"	f
+stime_loop	stime.c	/^void stime_loop(void) {$/;"	f
+timer_handler	stime.c	/^void timer_handler(int signum) {$/;"	f
+timeslice	stime.c	/^static uint16_t timeslice = 0;$/;"	v	file:
+BEST_STIME	stime.h	18;"	d
+ST_ALWAYS	stime.h	/^    ST_ALWAYS,$/;"	e	enum:_stime_type_e
+ST_DISABLE	stime.h	/^    ST_DISABLE = 0,$/;"	e	enum:_stime_e
+ST_ENABLE	stime.h	/^    ST_ENABLE = 1,$/;"	e	enum:_stime_e
+ST_ONCE	stime.h	/^    ST_ONCE,$/;"	e	enum:_stime_type_e
+_STIME_H_	stime.h	9;"	d
+_stime_e	stime.h	/^typedef enum _stime_e{$/;"	g
+_stime_obj	stime.h	/^typedef struct _stime_obj {$/;"	s
+_stime_type_e	stime.h	/^typedef enum _stime_type_e{$/;"	g
+end_t	stime.h	/^    uint16_t end_t;$/;"	m	struct:_stime_obj
+is_enable	stime.h	/^    stime_e is_enable : 4;$/;"	m	struct:_stime_obj
+stime_e	stime.h	/^}stime_e;$/;"	t	typeref:enum:_stime_e
+stime_obj	stime.h	/^}stime_obj;$/;"	t	typeref:struct:_stime_obj
+stime_type_e	stime.h	/^}stime_type_e;$/;"	t	typeref:enum:_stime_type_e
+time	stime.h	/^    uint16_t time;$/;"	m	struct:_stime_obj
+time_up	stime.h	/^    void (*time_up)(void);$/;"	m	struct:_stime_obj
+type	stime.h	/^    stime_type_e type : 4;$/;"	m	struct:_stime_obj

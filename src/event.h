@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-#include "stdint.h"
+#include <stdint.h>
 #include <assert.h>  
 #include "fsm.h"
 
@@ -31,6 +31,7 @@ typedef enum _event_type_e {
 }event_type_e;
     
 typedef struct _event_obj {
+    char *name;
     event_e is_enable : 4;
     event_type_e type : 4;
     uint8_t *flag_addr;
@@ -40,12 +41,13 @@ typedef struct _event_obj {
 }event_obj;
 
 void event_init(void);
-int event_create(uint8_t *flag_addr,
+int event_create(const char *name,
+                 uint8_t *flag_addr,
                  event_type_e type,
                  void(*call_back)(void *),
                  void * pd,
                  event_e(*call_custom)(void *) );
-int event_delet(int id);
+int event_delet(const char *name);
 void event_loop(void);
 
 #ifdef __cplusplus
